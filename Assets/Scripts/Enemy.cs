@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, ICollidable
 {
     private int _damage = 1;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void HandleCollisionWithPlayer(Player player)
     {
-        if(collision.gameObject.TryGetComponent(out Player player))
-        {
-            player.TakeDamage(_damage);
-        }
+        player.TakeDamage(_damage);
     }
 }

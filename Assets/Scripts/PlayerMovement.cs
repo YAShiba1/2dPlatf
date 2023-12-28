@@ -10,12 +10,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _isFacingRight = true;
     private bool _isGrounded;
 
-    public bool IsGrounded => _isGrounded;
+    private const string Horizontal = "Horizontal";
 
-    public Rigidbody2D GetRigidbody2D()
-    {
-        return _rigidbody2D;
-    }
+    public bool IsGrounded => _isGrounded;
 
     private void Start()
     {
@@ -44,11 +41,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public Rigidbody2D GetRigidbody2D()
+    {
+        return _rigidbody2D;
+    }
+
     private void Move()
     {
-        float inputHorizontal;
+        float inputHorizontal = Input.GetAxis(Horizontal);
 
-        inputHorizontal = Input.GetAxis("Horizontal");
         _rigidbody2D.velocity = new Vector2(inputHorizontal * _speed, _rigidbody2D.velocity.y);
 
         if (_isFacingRight == false && inputHorizontal > 0)
