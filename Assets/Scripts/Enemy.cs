@@ -1,13 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Enemy : MonoBehaviour, ICollidable
+public class Enemy : Creature, ICollidable
 {
-    private int _damage = 1;
+    public Enemy()
+    {
+        MaxHealth = 5;
+        Damage = 1;
+    }
 
     public void HandleCollisionWithPlayer(Player player)
     {
-        player.TakeDamage(_damage);
+        player.TakeDamage(Damage);
+        TakeDamage(player.Damage);
     }
 }

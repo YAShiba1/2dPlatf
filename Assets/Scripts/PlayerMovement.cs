@@ -46,17 +46,22 @@ public class PlayerMovement : MonoBehaviour
         return _rigidbody2D;
     }
 
-    private void Move()
+    public float GetInputHorizontal()
     {
         float inputHorizontal = Input.GetAxis(Horizontal);
 
-        _rigidbody2D.velocity = new Vector2(inputHorizontal * _speed, _rigidbody2D.velocity.y);
+        return inputHorizontal;
+    }
 
-        if (_isFacingRight == false && inputHorizontal > 0)
+    private void Move()
+    {
+        _rigidbody2D.velocity = new Vector2(GetInputHorizontal() * _speed, _rigidbody2D.velocity.y);
+
+        if (_isFacingRight == false && GetInputHorizontal() > 0)
         {
             Flip();
         }
-        else if (_isFacingRight == true && inputHorizontal < 0)
+        else if (_isFacingRight == true && GetInputHorizontal() < 0)
         {
             Flip();
         }
