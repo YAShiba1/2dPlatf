@@ -3,19 +3,17 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMovement), typeof(PlayerAnimation))]
-public class Player : Creature 
+public class Player : Creature
 {
     private PlayerMovement _playerMovement;
     private PlayerAnimation _playerAnimation;
 
-    public Player()
+    private void Awake()
     {
         MaxHealth = 10;
         Damage = 2;
-    }
+        CurrentHealth = MaxHealth;
 
-    private void Start()
-    {
         _playerMovement = GetComponent<PlayerMovement>();
         _playerAnimation = GetComponent<PlayerAnimation>();
     }
@@ -36,7 +34,7 @@ public class Player : Creature
 
         CurrentHealth += value;
 
-        if(CurrentHealth > MaxHealth)
+        if (CurrentHealth > MaxHealth)
         {
             CurrentHealth = MaxHealth;
         }

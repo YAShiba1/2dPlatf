@@ -11,11 +11,6 @@ public abstract class Creature : MonoBehaviour
 
     public event UnityAction<float> HealthChanged;
 
-    private void Awake()
-    {
-        CurrentHealth = MaxHealth;
-    }
-
     public void TakeDamage(int damage)
     {
         if (damage < 0)

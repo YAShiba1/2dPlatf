@@ -6,10 +6,11 @@ using UnityEngine.Events;
 
 public class Enemy : Creature, ICollidable
 {
-    public Enemy()
+    private void Awake()
     {
         MaxHealth = 5;
         Damage = 1;
+        CurrentHealth = MaxHealth;
     }
 
     public void HandleCollisionWithPlayer(Player player)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DamageHandler : MonoBehaviour
 {
-    public void TakeDamage(ref int health, int damage)
+    public void TakeDamage(int health, int damage)
     {
         if (damage < 0)
         {

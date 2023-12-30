@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff25398287537e64eb231c02947af35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _path: {fileID: 497226095}
   _speed: 3
+  _path: {fileID: 497226095}
   _player: {fileID: 2108225360}
   _chaseDistance: 4
 --- !u!58 &256309485

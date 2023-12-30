@@ -1,15 +1,13 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Movement
 {
     [SerializeField] private Transform _path;
-    [SerializeField] private float _speed;
     [SerializeField] private Transform _player;
     [SerializeField] private float _chaseDistance;
 
     private Transform[] _points;
     private int _currentPoint;
-    private bool _isFacingRight = true;
 
     private void Start()
     {
@@ -73,13 +71,5 @@ public class EnemyMovement : MonoBehaviour
                 Flip();
             }
         }
-    }
-
-    private void Flip()
-    {
-        _isFacingRight = !_isFacingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 }

@@ -1,13 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Movement
 {
-    [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
 
     private Rigidbody2D _rigidbody2D;
-    private bool _isFacingRight = true;
     private bool _isGrounded;
 
     private const string Horizontal = "Horizontal";
@@ -73,13 +71,5 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody2D.AddForce(transform.up * _jumpForce, ForceMode2D.Impulse);
         }
-    }
-
-    private void Flip()
-    {
-        _isFacingRight = !_isFacingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 }
