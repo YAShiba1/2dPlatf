@@ -8,7 +8,7 @@ public class Enemy : Creature, ICollidable
 {
     private void Awake()
     {
-        MaxHealth = 5;
+        MaxHealth = 8;
         Damage = 1;
         CurrentHealth = MaxHealth;
     }
